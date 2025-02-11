@@ -1,0 +1,13 @@
+---
+# tasks file for ec2
+- name: start an ec2 instance with public ip address
+  amazon.aws.ec2_instance:
+    name: ansible-instance
+    instance_type: "{{type}}"
+    security_group: default
+    region: eu-north-1
+    aws_access_key: "{{access_key}}"
+    aws_secret_key: "{{secret_key}}"
+    network:
+      assign_public_ip: true
+    image_id: ami-08b1d20c6a69a7100
